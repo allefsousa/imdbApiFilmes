@@ -1,9 +1,11 @@
-package com.poppin.movies;
+package com.poppin.movies.exibefilme;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.poppin.movies.R;
+
+public class ExibeFilmeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
