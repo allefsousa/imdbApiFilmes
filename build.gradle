@@ -22,6 +22,35 @@ allprojects {
     }
 }
 
+
+ext{
+    minSdkVersion = 21
+    targetSdkVersion = 27
+    compileSdkVersion = 27
+
+
+    // App dependencias
+    supportLibraryVersion   = '27.1.1'
+    constraintlayout        = '1.1.2'
+    retrofit2               = '2.4.0'
+    gson                    = '2.4.0'
+    glide                   = '4.7.1'
+    supportcardview         = '27.1.1'
+    supportrecyclerview     = '27.1.1'
+    junit                   = '4.12'
+    runner                  = '1.0.2'
+    espressocore            = '3.0.2'
+    supportdesign           = '27.1.1'
+    okhttpinterceptor       = '3.10.0'
+    butterKnife             = '8.8.1'
+    materialriple           = '1.0.2'
+
+
+
+
+
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
