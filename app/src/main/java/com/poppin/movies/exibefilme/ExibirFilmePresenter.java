@@ -35,7 +35,7 @@ public class ExibirFilmePresenter implements ExibeFilmeContract.Presenter, Exibe
 
     @Override
     public void onFinished(List<Filme> filmeList) {
-        if (filmeList.isEmpty()){
+        if (filmeList == null){
             myView.PesquisaFilmeSemretorno();
         }else {
             myView.RecyclerViewSetValue(filmeList);

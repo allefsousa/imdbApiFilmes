@@ -13,18 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemee">
         <activity android:name=".exibefilme.ExibeFilmeActivity">
+        </activity>
+        <activity
+            android:name=".detalhefilme.DetalheFilmeActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.poppin.movies.exibefilme.ExibeFilmeActivity" />
+        </activity>
+        <activity android:name=".IntroActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".detalhefilme.DetalheFilmeActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.poppin.movies.exibefilme.ExibeFilmeActivity" />
-
         </activity>
     </application>
 

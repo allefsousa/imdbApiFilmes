@@ -3,7 +3,9 @@ package com.poppin.movies.detalhefilme;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ExpandableListAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -31,6 +33,7 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
     TextView textdescri;
     @BindView(R.id.Idetalhefilme)
     ImageView logoFilme;
+
 
 
     private DetalheFilmeContract.Presenter mpresenter;
@@ -82,7 +85,13 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
         textdescri.setText(detalheFilme1.getPlot());
         textRoteirista.setText(detalheFilme1.getWriter());
         textclassificacao.setText(detalheFilme1.getRated());
-        Glide.with(this).load(detalheFilme1.getPoster()).into(logoFilme);
+
+        if (detalheFilme1.equals("N/A")){
+            logoFilme.setImageResource(R.drawable.placeholder);
+        }else {
+            Glide.with(this).load(detalheFilme1.getPoster()).into(logoFilme);
+
+        }
 
 
     }
@@ -100,5 +109,11 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
     @Override
     public void getDetalheFilme(OnFinishedListener onFinishedListener, String idFilme) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_out_right);
     }
 }

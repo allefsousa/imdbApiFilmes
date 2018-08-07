@@ -16,7 +16,6 @@ import java.util.List;
 public interface ExibeFilmeContract {
 
     interface View{
-        void PesquisaFilmeClicado();
         void PesquisaFilmeVazio();
         void PesquisaFilmeSemretorno();
         void PesquisaFilmeSemConexao();

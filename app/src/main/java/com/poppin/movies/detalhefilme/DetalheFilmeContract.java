@@ -22,6 +22,8 @@ public interface DetalheFilmeContract {
         void onResponseFaiulure(Throwable t);
 
         void onFailure(Throwable t);
+
+
     }
 
     interface Presenter {

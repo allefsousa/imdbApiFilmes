@@ -95,11 +95,7 @@ public class ExibeFilmeActivity extends AppCompatActivity implements ExibeFilmeC
     };
 
 
-    @Override
-    public void PesquisaFilmeClicado() {
 
-
-    }
 
     @Override
     public void PesquisaFilmeVazio() {
