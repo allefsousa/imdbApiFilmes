@@ -29,7 +29,6 @@ public interface ExibeFilmeContract {
 
     interface Presenter{
         void PesquisaFilme(String filme);
-        void ExibirfilmeView (ExibeFilmeContract.View view);
     }
 
     interface getFilmeService {

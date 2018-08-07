@@ -28,7 +28,7 @@ public class ExibirFilmePresenter implements ExibeFilmeContract.Presenter, Exibe
 
     }
 
-    @Override
+
     public void ExibirfilmeView(ExibeFilmeContract.View view) {
         myView = view;
     }
@@ -40,6 +40,7 @@ public class ExibirFilmePresenter implements ExibeFilmeContract.Presenter, Exibe
         }else {
             myView.RecyclerViewSetValue(filmeList);
             myView.ColapsinExpanded(false);
+            myView.Limpar();
         }
 
     }
