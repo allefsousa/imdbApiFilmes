@@ -81,7 +81,7 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
         textGenero.setText("Genero: "+detalheFilme1.getGenre());
         textRoteirista.setText("Roteirista: "+detalheFilme1.getReleased());
         textdescri.setText("Descrição: "+detalheFilme1.getPlot());
-        textRoteirista.setText(detalheFilme1.getWriter());
+        textRoteirista.setText("Escritor "+detalheFilme1.getWriter());
         textclassificacao.setText("Classificação: "+detalheFilme1.getRated());
 
         if (detalheFilme1.getPoster().equals("N/A")){
