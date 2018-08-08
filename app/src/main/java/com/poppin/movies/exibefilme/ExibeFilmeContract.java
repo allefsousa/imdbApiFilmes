@@ -18,7 +18,6 @@ public interface ExibeFilmeContract {
     interface View{
         void PesquisaFilmeVazio();
         void PesquisaFilmeSemretorno();
-        void PesquisaFilmeSemConexao();
         void hideKeyboard(Activity activity);
         void Limpar();
         void ColapsinExpanded(Boolean aBoolean);

@@ -15,23 +15,16 @@ public interface DetalheFilmeContract {
 
     interface View {
         void PesquisaDetalhe(String NomeFilme);
-
-        void DetalheVazio();
-
-        void DetalheSemRetrono();
-
-        void DetalheSemConexao();
-
+        
         void ViewSetValue(DetalheFilme detalheFilme);
-
-        void onResponseFaiulure(Throwable t);
-
-        void onFailure(Throwable t);
-
+        
 
         void ViewSetRating(List<Avaliacao> ratings);
 
 
+        void DetalheVazio();
+
+        void onFailure(Throwable t);
     }
 
     interface Presenter {

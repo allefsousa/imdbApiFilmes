@@ -121,13 +121,7 @@ public class ExibeFilmeActivity extends AppCompatActivity implements ExibeFilmeC
                 .show();
     }
 
-    @Override
-    public void PesquisaFilmeSemConexao() {
-        new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-                .setTitleText("Oops...")
-                .setContentText("Verifique sua conexão com a internet !")
-                .show();
-    }
+
 
     @Override
     public void hideKeyboard(Activity activity) {

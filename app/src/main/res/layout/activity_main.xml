@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="top"
 
-                    android:text="Buscador de Filmes"
+                    android:text="@string/poppin_filmes"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />

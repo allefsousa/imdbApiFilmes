@@ -22,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFilmeContract.View, DetalheFilmeContract.GetDetalheService {
 
@@ -73,21 +74,6 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
 
 
     @Override
-    public void DetalheVazio() {
-
-    }
-
-    @Override
-    public void DetalheSemRetrono() {
-
-    }
-
-    @Override
-    public void DetalheSemConexao() {
-
-    }
-
-    @Override
     public void ViewSetValue(DetalheFilme detalheFilme1) {
         textNome.setText(detalheFilme1.getTitle());
         textData.setText(detalheFilme1.getReleased());
@@ -108,15 +94,6 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
 
     }
 
-    @Override
-    public void onResponseFaiulure(Throwable t) {
-
-    }
-
-    @Override
-    public void onFailure(Throwable t) {
-
-    }
 
     @Override
     public void ViewSetRating(List<Avaliacao> ratings) {
@@ -129,13 +106,30 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
     }
 
     @Override
-    public void getDetalheFilme(OnFinishedListener onFinishedListener, String idFilme) {
-
+    public void DetalheVazio() {
+        new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Oops...")
+                .setContentText("Tente Novamanete, Erro Inesperado.")
+                .show();
     }
+
+    @Override
+    public void onFailure(Throwable t) {
+        new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Oops...")
+                .setContentText("Tente Novamanete, Erro Inesperado.")
+                .show();
+    }
+
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(android.R.anim.slide_out_right, android.R.anim.slide_out_right);
+    }
+
+    @Override
+    public void getDetalheFilme(OnFinishedListener onFinishedListener, String idFilme) {
+
     }
 }
