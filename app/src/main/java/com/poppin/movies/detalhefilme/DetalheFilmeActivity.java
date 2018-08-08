@@ -75,14 +75,14 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
 
     @Override
     public void ViewSetValue(DetalheFilme detalheFilme1) {
-        textNome.setText(detalheFilme1.getTitle());
-        textData.setText(detalheFilme1.getReleased());
-        textDiretor.setText(detalheFilme1.getDirector());
-        textGenero.setText(detalheFilme1.getGenre());
-        textRoteirista.setText(detalheFilme1.getReleased());
-        textdescri.setText(detalheFilme1.getPlot());
+        textNome.setText("Titulo: "+detalheFilme1.getTitle());
+        textData.setText("Data: "+detalheFilme1.getReleased());
+        textDiretor.setText("Diretor: "+detalheFilme1.getDirector());
+        textGenero.setText("Genero: "+detalheFilme1.getGenre());
+        textRoteirista.setText("Roteirista: "+detalheFilme1.getReleased());
+        textdescri.setText("Descrição: "+detalheFilme1.getPlot());
         textRoteirista.setText(detalheFilme1.getWriter());
-        textclassificacao.setText(detalheFilme1.getRated());
+        textclassificacao.setText("Classificação: "+detalheFilme1.getRated());
 
         if (detalheFilme1.getPoster().equals("N/A")){
             logoFilme.setImageResource(R.drawable.placeholder);
