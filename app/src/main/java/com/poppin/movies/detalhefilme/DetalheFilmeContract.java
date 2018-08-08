@@ -1,6 +1,11 @@
 package com.poppin.movies.detalhefilme;
 
+import android.media.Rating;
+
+import com.poppin.movies.data.Avaliacao;
 import com.poppin.movies.data.source.DetalheFilme;
+
+import java.util.List;
 
 /**
  * Created by allef on 06/08/2018.
@@ -22,6 +27,9 @@ public interface DetalheFilmeContract {
         void onResponseFaiulure(Throwable t);
 
         void onFailure(Throwable t);
+
+
+        void ViewSetRating(List<Avaliacao> ratings);
 
 
     }

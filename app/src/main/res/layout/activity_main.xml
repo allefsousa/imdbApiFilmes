@@ -48,18 +48,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="top"
+
                     android:text="Buscador de Filmes"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_medium"
-                    android:text="Informe o Nome do Filme !"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                    android:textColor="@android:color/white" />
+
 
             </LinearLayout>
 
@@ -98,7 +94,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:hint="Buscar Filme"
+                        android:hint="Nome do Filme"
                         android:imeOptions="actionSearch"
                         android:maxLines="1"
                         android:singleLine="true">

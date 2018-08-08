@@ -36,6 +36,7 @@ public class DetalheFilmePresenter implements DetalheFilmeContract.Presenter,Det
             myDetViews.DetalheVazio();
         }else {
             myDetViews.ViewSetValue(detalheFilme);
+            myDetViews.ViewSetRating(detalheFilme.getRatings());
         }
 
 

@@ -20,11 +20,19 @@ public class ExibirFilmePresenter implements ExibeFilmeContract.Presenter, Exibe
     @Override
     public void PesquisaFilme(String filme) {
 
-        if (!TextUtils.isEmpty(filme)) {
-            filmeService.getFilmeArrayList(this, filme);
-        } else {
-            myView.PesquisaFilmeVazio();
+        Boolean NetworkisOn = myView.Network();
+
+        if (NetworkisOn){
+            if (!TextUtils.isEmpty(filme)) {
+                filmeService.getFilmeArrayList(this, filme);
+            } else {
+                myView.PesquisaFilmeVazio();
+            }
+        }else {
+            myView.usuarioSemConexao();
         }
+
+
 
     }
 
@@ -49,4 +57,6 @@ public class ExibirFilmePresenter implements ExibeFilmeContract.Presenter, Exibe
     public void onFailure(Throwable t) {
         myView.onResponseFaiulure(t);
     }
+
+
 }

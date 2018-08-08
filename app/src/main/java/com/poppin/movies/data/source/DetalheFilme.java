@@ -5,6 +5,7 @@ import android.media.Rating;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.poppin.movies.data.Avaliacao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class DetalheFilme implements Serializable {
     @SerializedName("Ratings")
     @Expose
 
-    private List<Rating> ratings = new ArrayList<Rating>();
+    private List<Avaliacao> ratings = new ArrayList<Avaliacao>();
     @SerializedName("Metascore")
     @Expose
     private String metascore;
@@ -127,7 +128,6 @@ public class DetalheFilme implements Serializable {
         this.country = country;
         this.awards = awards;
         this.poster = poster;
-        this.ratings = ratings;
         this.metascore = metascore;
         this.imdbRating = imdbRating;
         this.imdbVotes = imdbVotes;
@@ -249,11 +249,15 @@ public class DetalheFilme implements Serializable {
         this.poster = poster;
     }
 
-    public List<Rating> getRatings() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public List<Avaliacao> getRatings() {
         return ratings;
     }
 
-    public void setRatings(List<Rating> ratings) {
+    public void setRatings(List<Avaliacao> ratings) {
         this.ratings = ratings;
     }
 

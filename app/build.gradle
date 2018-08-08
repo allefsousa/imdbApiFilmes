@@ -42,4 +42,4 @@ dependencies {
     implementation "com.jakewharton:butterknife:$rootProject.butterKnife"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnife"
     implementation "com.balysv:material-ripple:$rootProject.materialriple"
-}
+    implementation 'com.github.f0ris.sweetalert:library:1.5.1'}

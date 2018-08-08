@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- * RecyclerView item decoration - give equal margin around grid item
+ * RecyclerView item_detalhe decoration - give equal margin around grid item_detalhe
  */
 public class SpacingItemDecoration extends RecyclerView.ItemDecoration {
 

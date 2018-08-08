@@ -1,7 +1,10 @@
 package com.poppin.movies.exibefilme;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +29,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 import static com.poppin.movies.utils.dpUtils.dpToPx;
 
@@ -53,9 +58,12 @@ public class ExibeFilmeActivity extends AppCompatActivity implements ExibeFilmeC
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (!TextUtils.isEmpty(editFilme.getText().toString())) {
                     if (i == EditorInfo.IME_ACTION_SEARCH) {
+                        hideKeyboard(ExibeFilmeActivity.this);
                         String tituloFilme;
                         tituloFilme = editFilme.getText().toString();
                         mPresenter.PesquisaFilme(tituloFilme);
+
+
 
                     }
                 }
@@ -73,7 +81,6 @@ public class ExibeFilmeActivity extends AppCompatActivity implements ExibeFilmeC
         recyclerViewfilme.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerViewfilme.addItemDecoration(new SpacingItemDecoration(2, dpToPx(this, 4), true));
         recyclerViewfilme.setAdapter(adapterFilme);
-        hideKeyboard(this);
 
     }
 
@@ -99,18 +106,27 @@ public class ExibeFilmeActivity extends AppCompatActivity implements ExibeFilmeC
 
     @Override
     public void PesquisaFilmeVazio() {
-        Toast.makeText(this, "Filme Vazio", Toast.LENGTH_SHORT).show();
+        new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Oops...")
+                .setContentText("Nome do filme não pode ser Vazio !")
+                .show();
+
     }
 
     @Override
     public void PesquisaFilmeSemretorno() {
-        Toast.makeText(this, "Não Existe Filme para o nome procurado", Toast.LENGTH_SHORT).show();
-
+        new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Oops...")
+                .setContentText("Filme não encontrado.")
+                .show();
     }
 
     @Override
     public void PesquisaFilmeSemConexao() {
-        Toast.makeText(this, "Verifique sua conexão com a internet", Toast.LENGTH_SHORT).show();
+        new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Oops...")
+                .setContentText("Verifique sua conexão com a internet !")
+                .show();
     }
 
     @Override
@@ -135,5 +151,31 @@ public class ExibeFilmeActivity extends AppCompatActivity implements ExibeFilmeC
     public void ColapsinExpanded(Boolean aBoolean) {
         appBarLayout.setExpanded(aBoolean);
 
+    }
+    public boolean  Network(){
+        boolean retorno = true;
+        ConnectivityManager conMgr = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if ( conMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED
+                || conMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED ) {
+
+            retorno = true;
+
+        }
+        else if ( conMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.DISCONNECTED
+                || conMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.DISCONNECTED) {
+            retorno = false;
+
+        }
+
+        return  retorno;
+    }
+
+    @Override
+    public void usuarioSemConexao() {
+        new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Oops...")
+                .setContentText("Verifique sua conexão com a internet !")
+                .show();
     }
 }

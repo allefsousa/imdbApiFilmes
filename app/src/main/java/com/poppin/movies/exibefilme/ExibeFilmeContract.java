@@ -24,10 +24,13 @@ public interface ExibeFilmeContract {
         void ColapsinExpanded(Boolean aBoolean);
         void RecyclerViewSetValue(List<Filme> filmeList);
         void onResponseFaiulure(Throwable t);
+        boolean Network();
+        void usuarioSemConexao();
     }
 
     interface Presenter{
         void PesquisaFilme(String filme);
+
     }
 
     interface getFilmeService {

@@ -1,8 +1,13 @@
 package com.poppin.movies.detalhefilme;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.Rating;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -10,7 +15,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.poppin.movies.R;
+import com.poppin.movies.data.Avaliacao;
 import com.poppin.movies.data.source.DetalheFilme;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,6 +41,9 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
     TextView textdescri;
     @BindView(R.id.Idetalhefilme)
     ImageView logoFilme;
+    @BindView(R.id.recyclerDetalhe)
+    RecyclerView recyclerView;
+    private Context context;
 
 
 
@@ -42,6 +53,7 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhe_filme);
         ButterKnife.bind(this);
+        context = DetalheFilmeActivity.this;
 
         mpresenter = new DetalheFilmePresenter(new getDetalheServiceImpl(),this);
 
@@ -86,7 +98,7 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
         textRoteirista.setText(detalheFilme1.getWriter());
         textclassificacao.setText(detalheFilme1.getRated());
 
-        if (detalheFilme1.equals("N/A")){
+        if (detalheFilme1.getPoster().equals("N/A")){
             logoFilme.setImageResource(R.drawable.placeholder);
         }else {
             Glide.with(this).load(detalheFilme1.getPoster()).into(logoFilme);
@@ -103,6 +115,16 @@ public class DetalheFilmeActivity extends AppCompatActivity implements DetalheFi
 
     @Override
     public void onFailure(Throwable t) {
+
+    }
+
+    @Override
+    public void ViewSetRating(List<Avaliacao> ratings) {
+         AdapterDetalheFilme adapterDetalheFilme = new AdapterDetalheFilme(context,ratings);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        recyclerView.setAdapter(adapterDetalheFilme);
+
+
 
     }
 
